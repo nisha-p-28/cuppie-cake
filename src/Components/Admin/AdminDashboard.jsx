@@ -2,21 +2,15 @@ import React, { useState } from "react";
 import {
   Edit,
   Trash,
-  ChefHat,
-  Cake,
-  CakeSlice,
-  Pizza,
-  Dessert,
-  Donut,
   LayoutDashboard,
+  Cake,
   Settings,
   Gift,
+  Package,
   ChevronLeft,
   ChevronRight,
-  Package,
 } from "lucide-react";
 import cake_pre from "../../assets/cake-pre.jpg";
-import logo from "../../../public/favicon.png"
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 /* 🔹 Sidebar Component */
@@ -31,22 +25,20 @@ const Sidebar = ({ collapsed, setCollapsed }) => {
 
   return (
     <div
-      className={`h-screen bg-white text-gray-800 shadow-xl transition-all duration-300 ${
-        collapsed ? "w-20" : "w-64"
-      } fixed left-0 top-0`}
+      className={`h-screen bg-gradient-to-b from-pink-200 via-rose-100 to-pink-50 text-gray-800 shadow-xl transition-all duration-300 ${collapsed ? "w-20" : "w-64"
+        } fixed left-0 top-0`}
     >
       {/* 🔹 Logo + Collapse Button */}
       <div className="flex items-center justify-between p-6 border-b border-rose-200">
         {!collapsed && (
           <div className="flex items-center gap-3">
-            {/* Cute SVG logo */}
             <img
-              src={logo}
+              src="https://cdn-icons-png.flaticon.com/512/857/857681.png"
               alt="Bakery Logo"
               className="w-10 h-10"
             />
-            <h1 className="text-xl font-bold text-rose-400 tracking-wide">
-              Cuppie Cake
+            <h1 className="text-xl font-bold text-rose-600 tracking-wide">
+              Sweetify
             </h1>
           </div>
         )}
@@ -86,10 +78,10 @@ const Topbar = () => (
         className="px-4 py-2 w-80 border rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-rose-300 shadow-sm"
       />
       <button className="p-2 rounded-full bg-rose-100 hover:bg-rose-200">
-        <img src="https://cdn-icons-png.flaticon.com/128/17347/17347585.png" alt="" className="h-6"/>
+        🔔
       </button>
       <button className="p-2 rounded-full bg-rose-100 hover:bg-rose-200">
-        <img src="https://cdn-icons-png.flaticon.com/128/2698/2698011.png" alt="" className="h-6"/>
+        ⚙️
       </button>
       <img
         src="https://cdn-icons-png.flaticon.com/512/2922/2922510.png"
@@ -133,27 +125,27 @@ const Banner = () => (
 const Categories = () => {
   const cats = [
     {
-      icon: "https://cdn-icons-png.flaticon.com/128/7093/7093198.png",
+      icon: "https://cdn-icons-png.flaticon.com/512/1046/1046857.png",
       label: "Breads",
     },
     {
-      icon: "https://cdn-icons-png.flaticon.com/128/8616/8616648.png",
+      icon: "https://cdn-icons-png.flaticon.com/512/9288/9288987.png",
       label: "Pastries",
     },
     {
-      icon: "https://cdn-icons-png.flaticon.com/128/2682/2682446.png",
+      icon: "https://cdn-icons-png.flaticon.com/512/685/685352.png",
       label: "Cakes",
     },
     {
-      icon: "https://cdn-icons-png.flaticon.com/128/2682/2682355.png",
+      icon: "https://cdn-icons-png.flaticon.com/512/3158/3158983.png",
       label: "Muffins",
     },
     {
-      icon: "https://cdn-icons-png.flaticon.com/128/1404/1404945.png",
+      icon: "https://cdn-icons-png.flaticon.com/512/5787/5787039.png",
       label: "Pizza",
     },
     {
-      icon: "https://cdn-icons-png.flaticon.com/128/2821/2821785.png",
+      icon: "https://cdn-icons-png.flaticon.com/512/1046/1046784.png",
       label: "Donuts",
     },
   ];
@@ -365,11 +357,11 @@ const ProductManagement = () => {
     <div className="flex min-h-screen bg-gradient-to-br from-rose-50 via-white to-pink-50">
       <Sidebar collapsed={collapsed} setCollapsed={setCollapsed} />
       <main
-        className={`flex flex-col w-full transition-all duration-300 ${
-          collapsed ? "ml-20" : "ml-64"
-        } p-6`}
+        className={`flex flex-col w-full transition-all duration-300 ${collapsed ? "ml-20" : "ml-64"
+          } p-6`}
       >
         <Topbar />
+        <Banner /> {/* 🩷 Added Banner Section here */}
         <Categories />
         <div className="flex w-full gap-6">
           <CakeCustomization

@@ -9,6 +9,7 @@ import Dashboard from "./Components/Admin/Dashboard";
 import CustomerManagement from "./Components/Admin/CustomerManagement"
 import DeliveryManagement from "./Components/Admin/DeliveryManagement";
 import OrderManagement from "./Components/Admin/OrderManagement";
+import AdminDashboard from "./Components/Admin/AdminDashboard";
 
 const Admin = () => {
   useEffect(() => {
@@ -37,6 +38,9 @@ const Admin = () => {
 
             {/* Order management page */}
             <Route path="order" element={<OrderManagement />} />
+
+            {/* Dashboard */}
+            <Route path="/admin-dash" element={<AdminDashboard />} />
 
           </Routes>
         </div>

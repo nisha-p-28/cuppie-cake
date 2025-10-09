@@ -197,45 +197,77 @@ const CustomersPage = () => {
             </div>
 
             {/* Customers Table */}
-            <div className="bg-white rounded-2xl shadow-md overflow-hidden">
-              <table className="w-full text-left border-collapse">
-                <thead className="bg-gray-100 text-gray-600 text-sm uppercase">
-                  <tr>
-                    <th className="p-4">Name</th>
-                    <th className="p-4">Email</th>
-                    <th className="p-4">Phone</th>
-                    <th className="p-4">Status</th>
-                    <th className="p-4 text-center">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {customers.map((customer) => (
-                    <tr key={customer.id} className="border-b hover:bg-gray-50 transition">
-                      <td className="p-4 font-medium text-gray-800">{customer.name}</td>
-                      <td className="p-4 text-gray-600">{customer.email}</td>
-                      <td className="p-4 text-gray-600">{customer.phone}</td>
-                      <td className="p-4">
-                        <span
-                          className={`px-3 py-1 rounded-full text-xs font-medium ${
-                            customer.status === "Active"
-                              ? "bg-green-100 text-green-600"
-                              : "bg-red-100 text-red-600"
-                          }`}
-                        >
-                          {customer.status}
-                        </span>
-                      </td>
-                      <td className="p-4 flex items-center justify-center gap-3 text-gray-500">
-                        <Phone className="hover:text-green-500 cursor-pointer" size={18} />
-                        <Mail className="hover:text-blue-500 cursor-pointer" size={18} />
-                        <Edit2 className="hover:text-indigo-500 cursor-pointer" size={18} />
-                        <Trash2 className="hover:text-red-500 cursor-pointer" size={18} />
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div className="p-6 border-b border-gray-100 flex justify-between items-center">
+            <h3 className="text-xl font-semibold text-gray-700">
+              Customer List
+            </h3>
+            <span className="text-sm text-gray-500">Showing 1–5 of 320</span>
+          </div>
+
+          <table className="w-full text-left border-collapse">
+            <thead className="bg-gray-50 text-gray-600 uppercase text-sm">
+              <tr>
+                <th className="p-4">Customer</th>
+                <th className="p-4">Email</th>
+                <th className="p-4">Phone</th>
+                <th className="p-4">Status</th>
+                <th className="p-4 text-center">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {customers.map((customer) => (
+                <tr
+                  key={customer.id}
+                  className="border-b hover:bg-[#fff5f5] transition"
+                >
+                  <td className="p-4 flex items-center gap-3">
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                      alt="user"
+                      className="w-10 h-10 rounded-full"
+                    />
+                    <div>
+                      <p className="font-medium text-gray-800">{customer.name}</p>
+                      <p className="text-xs text-gray-500">Joined 2024</p>
+                    </div>
+                  </td>
+                  <td className="p-4 text-gray-600">{customer.email}</td>
+                  <td className="p-4 text-gray-600">{customer.phone}</td>
+                  <td className="p-4">
+                    <span
+                      className={`px-3 py-1 rounded-full text-xs font-medium ${
+                        customer.status === "Active"
+                          ? "bg-green-100 text-green-600"
+                          : "bg-red-100 text-red-600"
+                      }`}
+                    >
+                      {customer.status}
+                    </span>
+                  </td>
+                  <td className="p-4 text-center flex justify-center gap-4 text-gray-500">
+                    <Phone
+                      size={18}
+                      className="hover:text-green-500 cursor-pointer"
+                    />
+                    <Mail
+                      size={18}
+                      className="hover:text-blue-500 cursor-pointer"
+                    />
+                    <Edit2
+                      size={18}
+                      className="hover:text-indigo-500 cursor-pointer"
+                    />
+                    <Trash2
+                      size={18}
+                      className="hover:text-red-500 cursor-pointer"
+                    />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
           </>
         )}
 
@@ -308,7 +340,7 @@ const CustomersPage = () => {
         )}
       </div>
     </div>
-    // </Router>
+
   );
 };
 
